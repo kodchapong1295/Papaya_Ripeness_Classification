@@ -7,19 +7,19 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="style.css" />
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-
   </head>
+
   <body>
     <div id="header">
       <p class="text-center">Clcik to Upload Papaya</p>
     </div>
-    <div id="image" class="text-center">
+    <!-- <div id="image" class="text-center">
         <img id="imgFileUpload" alt="Select File" title="Select File" src="../f1.jpg" style="cursor: pointer" />
         <br />
         <span id="spnFilePath"></span>
@@ -38,6 +38,27 @@
                 };
             };
         </script>
+    </div> -->
+    <div id="image" class="text-center">
+      <p>
+        <input
+          type="file"
+          accept="image/*"
+          name="image"
+          id="file"
+          onchange="loadFile(event)"
+          style="display: none"
+        />
+      </p>
+      <p><label for="file" style="cursor: pointer">Upload Image</label></p>
+      <p><img id="output" width="200" /></p>
+
+      <script>
+        var loadFile = function (event) {
+          var image = document.getElementById("output");
+          image.src = URL.createObjectURL(event.target.files[0]);
+        };
+      </script>
+    </div>
   </body>
-  
 </html>
