@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    Hello World
-</body>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <p class="text-center">Clcik to Upload Papaya</p>
+    </div>
+    <div id="image" class="text-center">
+        <img id="imgFileUpload" alt="Select File" title="Select File" src="../f1.jpg" style="cursor: pointer" />
+        <br />
+        <span id="spnFilePath"></span>
+        <input type="file" id="FileUpload1" style="display: none" />
+        <script type="text/javascript">
+            window.onload = function () {
+                var fileupload = document.getElementById("FileUpload1");
+                var filePath = document.getElementById("spnFilePath");
+                var image = document.getElementById("imgFileUpload");
+                image.onclick = function () {
+                    fileupload.click();
+                };
+                fileupload.onchange = function () {
+                    var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
+                    filePath.innerHTML = "<b>Selected File: </b>" + fileName;
+                };
+            };
+        </script>
+  </body>
+  
 </html>
