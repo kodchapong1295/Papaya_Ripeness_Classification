@@ -7,6 +7,7 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
   <head>
     <meta charset="UTF-8" />
@@ -16,29 +17,10 @@
   </head>
 
   <body>
-    <div id="header">
-      <p class="text-center">Clcik to Upload Papaya</p>
+    <div id="header" class="text-center">
+      <p >Click to Upload Papaya</span>
     </div>
-    <!-- <div id="image" class="text-center">
-        <img id="imgFileUpload" alt="Select File" title="Select File" src="../f1.jpg" style="cursor: pointer" />
-        <br />
-        <span id="spnFilePath"></span>
-        <input type="file" id="FileUpload1" style="display: none" />
-        <script type="text/javascript">
-            window.onload = function () {
-                var fileupload = document.getElementById("FileUpload1");
-                var filePath = document.getElementById("spnFilePath");
-                var image = document.getElementById("imgFileUpload");
-                image.onclick = function () {
-                    fileupload.click();
-                };
-                fileupload.onchange = function () {
-                    var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
-                    filePath.innerHTML = "<b>Selected File: </b>" + fileName;
-                };
-            };
-        </script>
-    </div> -->
+
     <div id="image" class="text-center">
       <p>
         <input
@@ -50,7 +32,7 @@
           style="display: none"
         />
       </p>
-      <p><label for="file" style="cursor: pointer">Upload Image</label></p>
+
       <p><img id="output" width="200" /></p>
 
       <script>
@@ -59,6 +41,12 @@
           image.src = URL.createObjectURL(event.target.files[0]);
         };
       </script>
+    </div>
+
+    <div id="uploadButton" class="text-center">
+      <button type="button" class="btn info-btn">
+        <label for="file" style="cursor: pointer">Upload Image</label>
+      </button>
     </div>
   </body>
 </html>
