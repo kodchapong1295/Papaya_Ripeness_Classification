@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='lib/styles.css') }}">
     <title>Papaya</title>
 </head>
 
@@ -26,22 +26,33 @@
             <div class="card" style="width: 18rem;">
                 <div class="my-card">
                     <div class="header-card">
-                        <form method="POST">
-                            <input type='file' onchange="readURL(this);" id="file" class="inputfile" />
-                            <label class='btn btn-outline-secondary' for="file">Choose a file</label>
-
-                        </form>
-                        <img id="blah" src="papaya.jpg" />
+                        <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+                            <input type='file' onchange="readURL(this);" name="my_image" id="pwd" class="inputfile" />
+                            <label class='btn btn-outline-secondary' for="pwd">Choose a file</label>
+                            <!-- <input type="file" class="form-control" placeholder="Hours Studied"  name="my_image" id="pwd"> -->
+                    
+                            {% if prediction %}
+                              
+                            <img src="{{img_path}}"> 
+                        
+                          
+                  
+                            {% else %}
+                            <img id="blah" src="{{ url_for('static', filename='papaya.jpg') }}" />
+                            {% endif %}
                     </div>
-
+                
 
 
                     <div class="result-card">
-                        <h5 class="card-title">Ripe</h5>
-                        <p class="card-text">Our model predict this image with 90% confidence</p>
-                        <a href="#" class="btn btn-light">Classify</a>
-                    </div>
-
+                        {% if prediction %}
+                        <h5 class="card-title">{{prediction[0]}}</h5> 
+                        <p class="card-text">Our model predict this image with {{prediction[1]}} confidence</p>
+                        {% endif %} 
+                         
+                        <button type="submit" class="btn btn-light">Classify</button> 
+                    </div> 
+                </form>
                 </div>
             </div>
         </div>
@@ -53,7 +64,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="scripts.js"></script>
+        <script src="{{ url_for('static', filename='lib/scripts.js') }}"></script>
 
 </body>
 
