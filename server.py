@@ -36,7 +36,7 @@ def predict_label(img_path):
 	)
 	return [class_names[np.argmax(score)], str(round(100 * np.max(score), 2)) ]
 
-@app.route('/')
+@app.route('/',methods = ['GET', 'POST'])
 def home():
     return render_template("index.html")
     
