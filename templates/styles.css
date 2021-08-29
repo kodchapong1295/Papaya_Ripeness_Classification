@@ -6,7 +6,7 @@
 
 body{
     background-image: url('bg.jpg');
-    background-size: auto;
+    background-size: cover;
     max-width: 100%;
     height: auto;
     
