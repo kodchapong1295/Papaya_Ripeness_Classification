@@ -9,8 +9,8 @@ import numpy as np
 
 app = Flask(__name__)
 
-model = load_model('modelNut.h5')
-reconstructed_model = keras.models.load_model("modelNut.h5")
+model = load_model('Main_feature/model_9Oct_batch32_size64.h5')
+reconstructed_model = keras.models.load_model("Main_feature/model_9Oct_batch32_size64.h5")
 batch_size = 32
 img_height = 64
 img_width = 64
