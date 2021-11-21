@@ -1,5 +1,0 @@
-475 TOTAL
-
-125        Medium
-125+69     Not Ripe
-125+25     Ripe

@@ -9,8 +9,8 @@ import numpy as np
 
 app = Flask(__name__)
 
-model = load_model('Main_feature/model_9Oct_batch32_size64.h5')
-reconstructed_model = keras.models.load_model("Main_feature/model_9Oct_batch32_size64.h5")
+model = load_model('Main_feature/model8_embedded_augmentation_100Epoch_dataset3.h5')
+reconstructed_model = keras.models.load_model("Main_feature/model8_embedded_augmentation_100Epoch_dataset3.h5")
 batch_size = 32
 img_height = 64
 img_width = 64
@@ -45,8 +45,8 @@ def get_output():
 	if request.method == 'POST':
 		img = request.files['my_image']
 
-		# img_path = "static/" + img.filename	
-		img_path = "static/test.png"
+		img_path = "static/" + img.filename	
+		# img_path = "static/test.png"
 		img.save(img_path)
 
 		p = predict_label(img_path)
